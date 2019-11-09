@@ -25,6 +25,24 @@ class App extends Component {
     };
   }
 
+  onPlayerNameUpdate = (playerIndex, playerName) => {
+    const updatePlayers = this.state.players.map((player, index) => {
+      if (index === playerIndex) {
+        const updatePlayer = {
+          ...player,
+          name: playerName
+        };
+
+        return updatePlayer;
+      }
+      return player;
+    });
+    const players = updatePlayers;
+    this.setState({
+      players: players
+    });
+  };
+
   onScoreUpdate = (playerIndex, scoreChange) => {
     const updatePlayers = this.state.players.map((player, index) => {
       if (index === playerIndex) {
@@ -81,6 +99,7 @@ class App extends Component {
           multiplier={this.state.multiplier}
           players={this.state.players}
           onScoreUpdate={this.onScoreUpdate}
+          onPlayerNameUpdate={this.onPlayerNameUpdate}
           onPlayerRemove={this.onPlayerRemove}
         />
       </div>
