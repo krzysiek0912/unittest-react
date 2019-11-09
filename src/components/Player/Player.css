@@ -1,0 +1,18 @@
+.Player {
+  display: flex;
+  justify-content: space-between;
+  line-height: 35px;
+  margin-bottom: 10px;
+  /* max-width: 250px; */
+  /* background: black;
+  color: white; */
+}
+.Player__name {
+  width: 100px;
+}
+.Player__button {
+  cursor: pointer;
+}
+.Player__score {
+  margin: 0 15px;
+}

@@ -1,0 +1,9 @@
+.AddPlayer {
+  padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.AddPlayer .AddPlayer__input {
+  margin-right: 10px;
+}

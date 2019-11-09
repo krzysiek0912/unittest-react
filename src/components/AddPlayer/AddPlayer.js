@@ -9,13 +9,17 @@ const AddPlayer = props => {
     input.value = "";
   };
   return (
-    <form className="AddPlayer" onSubmit={onSubmit}>
+    <form className="AddPlayer form-inline" onSubmit={onSubmit}>
       <input
         type="text"
-        className="AddPlayer__input"
+        className="AddPlayer__input form-control"
         ref={node => (input = node)}
       />
-      <input type="submit" className="AddPlayer__submit" value="Add" />
+      <input
+        type="submit"
+        className="AddPlayer__submit btn btn-primary"
+        value="Add"
+      />
     </form>
   );
 };

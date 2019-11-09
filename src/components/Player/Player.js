@@ -6,18 +6,21 @@ const Player = props => (
     <span className="Player__name">{props.name}</span>
     <span className="Player__score">{props.score}</span>
     <span
-      className="Player__button"
+      className="Player__button btn btn-outline-warning"
       onClick={() => props.onPlayerScoreChange(-1)}
     >
       -
     </span>
     <span
-      className="Player__button"
+      className="Player__button btn btn-outline-success"
       onClick={() => props.onPlayerScoreChange(1)}
     >
       +
     </span>
-    <span className="Player__button" onClick={props.onPlayerRemove}>
+    <span
+      className="Player__button btn btn-outline-danger"
+      onClick={props.onPlayerRemove}
+    >
       remove
     </span>
   </li>
