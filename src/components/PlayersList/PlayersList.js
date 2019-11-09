@@ -3,10 +3,14 @@ import Player from "../Player/Player";
 import "./PlayersList.css";
 
 const PlayersList = props => {
+  const players = props.players.sort((curent, next) => {
+    if (curent.score < next.score) return 1;
+    if (curent.score > next.score) return -1;
+    return 0;
+  });
   return (
     <ul className="PlayersList">
-      {props.players.map((player, i) => {
-        const multi = props.multiplier;
+      {players.map((player, i) => {
         return (
           <Player
             key={i}

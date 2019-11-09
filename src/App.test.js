@@ -11,10 +11,12 @@ it("should renders without crashing", () => {
 it("should update player score", () => {
   const players = [
     {
+      id: 1,
       name: "Kunegunda",
       score: 0
     },
     {
+      id: 2,
       name: "Antoś",
       score: 0
     }

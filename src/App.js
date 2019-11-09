@@ -11,12 +11,14 @@ class App extends Component {
     this.state = {
       players: [
         {
-          name: "Kunegunda",
+          id: 1,
+          name: "Antoś",
           score: 5
         },
         {
-          name: "Antoś",
-          score: 0
+          id: 2,
+          name: "Kunegunda",
+          score: 1
         }
       ],
       multiplier: 1
@@ -24,16 +26,22 @@ class App extends Component {
   }
 
   onScoreUpdate = (playerIndex, scoreChange) => {
+    const updatePlayers = this.state.players.map((player, index) => {
+      if (index === playerIndex) {
+        const updatePlayer = {
+          ...player,
+          score: player.score + scoreChange * this.state.multiplier
+        };
+
+        return updatePlayer;
+      }
+      return player;
+    });
+
+    const players = updatePlayers;
+
     this.setState({
-      players: this.state.players.map((player, index) => {
-        if (index === playerIndex) {
-          return {
-            ...player,
-            score: player.score + scoreChange * this.state.multiplier
-          };
-        }
-        return player;
-      })
+      players: players
     });
   };
 
