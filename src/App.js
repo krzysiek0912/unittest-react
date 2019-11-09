@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import PointsMultiplier from "./components/PointsMultiplier/PointsMultiplier";
 import PlayersList from "./components/PlayersList/PlayersList";
 import AddPlayer from "./components/AddPlayer/AddPlayer";
 
@@ -17,7 +18,8 @@ class App extends Component {
           name: "Antoś",
           score: 0
         }
-      ]
+      ],
+      multiplier: 1
     };
   }
 
@@ -25,12 +27,22 @@ class App extends Component {
     this.setState({
       players: this.state.players.map((player, index) => {
         if (index === playerIndex) {
-          return { ...player, score: player.score + scoreChange };
+          return {
+            ...player,
+            score: player.score + scoreChange * this.state.multiplier
+          };
         }
         return player;
       })
     });
   };
+
+  onMultiplierUpdate = multiplier => {
+    this.setState({
+      multiplier
+    });
+  };
+
   onPlayerRemove = playerIndex => {
     this.setState({
       players: this.state.players.filter(
@@ -52,8 +64,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <PointsMultiplier
+          onMultiplierUpdate={this.onMultiplierUpdate}
+          multiplier={this.state.multiplier}
+        />
         <AddPlayer onPlayerAdd={this.onPlayerAdd} />
         <PlayersList
+          multiplier={this.state.multiplier}
           players={this.state.players}
           onScoreUpdate={this.onScoreUpdate}
           onPlayerRemove={this.onPlayerRemove}

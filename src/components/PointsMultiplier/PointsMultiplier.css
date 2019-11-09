@@ -1,0 +1,10 @@
+.PointsMultiplier {
+  padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.PointsMultiplier__input {
+  width: 100%;
+  text-align: center;
+}

@@ -41,7 +41,7 @@ it("should call onScoreUpdate with in Player call onPlayerScoreChange", () => {
   );
   const firstPlayer = playerComponent.find(Player).first();
   const onPlayerScoreChange = firstPlayer.prop("onPlayerScoreChange");
-  onPlayerScoreChange(10);
+  onPlayerScoreChange(10, 1);
   expect(mockedOnScoreUpdate).toBeCalledWith(0, 10);
 });
 
